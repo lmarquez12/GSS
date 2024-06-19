@@ -31,13 +31,14 @@ $H_0$ Opinion on the death penalty (CAPPUN) is independent of gun ownership (OWN
 $H_A$ Opinion on the death penalty (CAPPUN) is independent of gun ownership (OWNGUN). 
 
 
-OWNGUN is a categorical variable, CAPPUN is a categorical variable, 
-So we will use the cat~cat file. 
-
-
 ## Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
+
+
+OWNGUN is a categorical variable, CAPPUN is a categorical variable, 
+So we will use the cat~cat file. 
+
 
 ##Results
 
@@ -86,13 +87,34 @@ The fisher exact test has a p-value of 0.01651, we reject the null hypothesis, a
 
 #  Question 2
 
+```{r include=FALSE}
+require(tidyverse)
+require(tigerstats)
+data(ucdavis1)
+davisdata <- na.omit(ucdavis1)
+OurData <- chickwts
+```
+
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
 
 Is there a difference in years of education (EDUC) between the those who did or did not vote in 2012 (VOTE12)?
 
+
+$H_0$ There is a difference in years of education (EDUC) between those who did or did not vote in 2012 (VOTE12).
+
+$H_A$ There is not a difference in years of education (EDUC) between those who did or did not vote in 2012 (VOTE12).
+
+
+
 ## Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
+
+
+The years of education is a categorical variable, and voting is a numerical variable.
+
+The file that will be used to determine the results will be NUM~CAT.
+
 
 ##Results
 
@@ -104,6 +126,10 @@ Is there a difference in years of education (EDUC) between the those who did or 
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+plot(EDUC~VOTE12,data=GSSdata)
+```
+The graphical results show that 
 #### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
@@ -118,10 +144,17 @@ Is there a difference in years of education (EDUC) between the those who did or 
 
 Determine if a persons performance on the wordsum test (WORDSUM) is independent of their level of schooling (DEGREE).
 
+$H_0$ The persons performance score on wordsum (WORSSUM) test is independent of their level of schooling.
+
+$H_2$ The persons performance score on wordsum (WORSSUM) test is not independent of their level of schooling.
+
 ## Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
+A persons performance score on WORDSUM is a numerical , and the level of schooling is a categorical variable.
+
+CAT~CAT
 ##Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
